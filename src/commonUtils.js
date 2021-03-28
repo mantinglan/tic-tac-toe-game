@@ -59,7 +59,7 @@ export const CreatewinArray = function(gameScale,condition) {
       finalArr.push(subArray)
     }
     else{
-      for (let index = 0; index <= (gameScale-condition); index++) {
+      for (let index = 0; index <= (subArray.length-condition); index++) {
         finalArr.push(subArray.slice(index,index+(condition)))
       }
     }

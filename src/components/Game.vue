@@ -1,28 +1,28 @@
 <template>
   <div class="panel">
-    <div class="borderStyle info_board">
-      <span class="borderStyle info_text">{{infoString}}</span>
-      <div class="borderStyle role_wrapper" v-show="!(isWin.isGameFinish&&isWin.winner=='')">
+    <div class="info_board">
+      <span class="info_text">{{infoString}}</span>
+      <div class="role_wrapper" v-show="!(isWin.isGameFinish&&isWin.winner=='')">
         <circle-item v-bind:size="scale" v-show="currentRole==1">
         </circle-item>
         <cross-item v-bind:size="scale" v-show="currentRole==-1">
         </cross-item>
       </div>
     </div>
-    <div class="borderStyle block_wrapper" v-bind:style="gameScaleSize">
+    <div class="block_wrapper" v-bind:style="gameScaleSize">
       <div v-for="(i, index) in (scale*scale)"
         v-bind:key="index"
         v-on:click="updateGameBlocks(index)"
-        class="borderStyle game_item">
+        class="game_item">
           <circle-item v-bind:size="scale" v-show="blocks[index].owner==1">
           </circle-item>
           <cross-item v-bind:size="scale" v-show="blocks[index].owner==-1">
           </cross-item>
       </div>
     </div>
-    <button class="borderStyle restart_button" v-on:click="init(scale, condition)">Restart</button>
-    <div class="borderStyle setting_group">
-      <div class="borderStyle">
+    <button class="restart_button" v-on:click="init(scale, condition)">Restart</button>
+    <div class="setting_group">
+      <div>
         <span> Scale </span>
         <select v-model.number="scale">
           <option v-for="(n, index) in 13" v-bind:key="index">
@@ -30,7 +30,7 @@
           </option>
         </select>
       </div>
-      <div class="borderStyle">
+      <div>
         <span> Condition </span>
         <select v-model.number="condition">
           <option v-for="(n, index) in conditionArr" v-bind:key="index">
